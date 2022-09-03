@@ -19,6 +19,16 @@ bool CheckInput(string[] array)
     return true;
 }
 
+void ArraySort(string[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        int legth = array[i].Length;
+        if (legth > 3)
+            array[i] = string.Empty;
+    }
+}
+
 
 
 
