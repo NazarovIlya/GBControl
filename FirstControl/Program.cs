@@ -9,24 +9,26 @@ string[] InputArray()
     return arrayString;
 }
 
-bool CheckInput(string[] array)
+string[] ArraySort(string[] array)
 {
-    if (array.Length - 1 == 0)
-    {
-        Console.WriteLine("Ошибка ввода!");
-        return false;
-    }
-    return true;
-}
-
-void ArraySort(string[] array)
-{
+    int count = 0;
     for (int i = 0; i < array.Length; i++)
     {
-        int legth = array[i].Length;
-        if (legth > 3)
-            array[i] = string.Empty;
+        if (array[i].Length <= 3)
+            count++;
     }
+    string[] newArray = new string[count];
+    int k = 0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i].Length <= 3)
+        {
+            newArray[k] = array[i];
+            k++;
+        }
+
+    }
+    return newArray;
 }
 
 void PrintArray(string[] array, string preOutputText, string postOutputText)
@@ -36,10 +38,7 @@ void PrintArray(string[] array, string preOutputText, string postOutputText)
     for (int i = 0; i < array.Length; i++)
     {
         if (i < array.Length - 1)
-        {
-            if (array[i] != string.Empty)
-                Console.Write($"{array[i]}, ");
-        }
+            Console.Write($"{array[i]}, ");
         else Console.WriteLine($"{array[i]}] ");
     }
     Console.WriteLine(postOutputText);
@@ -49,14 +48,12 @@ void PrintArray(string[] array, string preOutputText, string postOutputText)
 
 
 
-// Console.Clear();
+Console.Clear();
 string[] array = InputArray();
-if (CheckInput(array))
-{
-    PrintArray(array, "Исходный массив: ", "Выполняется сортироввка...");
-    ArraySort(array);
-    PrintArray(array, "Массив после обработки: ", "Задача выполнена.");
-}
+PrintArray(array, "Исходный массив: ", "Выполняется сортировка...");
+string[] newArray = ArraySort(array);
+PrintArray(newArray, "Массив после обработки: ", "Задача выполнена.");
+
 
 
 
