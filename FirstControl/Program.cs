@@ -29,6 +29,20 @@ void ArraySort(string[] array)
     }
 }
 
+void PrintArray(string[] array, string preOutputText, string postOutputText)
+{
+    Console.Write($"{preOutputText}");
+    Console.Write("[");
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (i < array.Length - 1)
+            if (array[i] != string.Empty)
+                Console.Write($"{array[i]}, ");
+            else Console.Write($"{array[i]}] ");
+    }
+    Console.WriteLine(postOutputText);
+}
+
 
 
 
