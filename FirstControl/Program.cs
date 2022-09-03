@@ -13,7 +13,7 @@ bool CheckInput(string[] array)
 {
     if (array.Length - 1 == 0)
     {
-        Console.WriteLine("Input error!");
+        Console.WriteLine("Ошибка ввода!");
         return false;
     }
     return true;
@@ -36,9 +36,11 @@ void PrintArray(string[] array, string preOutputText, string postOutputText)
     for (int i = 0; i < array.Length; i++)
     {
         if (i < array.Length - 1)
+        {
             if (array[i] != string.Empty)
                 Console.Write($"{array[i]}, ");
-            else Console.Write($"{array[i]}] ");
+        }
+        else Console.WriteLine($"{array[i]}] ");
     }
     Console.WriteLine(postOutputText);
 }
@@ -49,6 +51,12 @@ void PrintArray(string[] array, string preOutputText, string postOutputText)
 
 // Console.Clear();
 string[] array = InputArray();
+if (CheckInput(array))
+{
+    PrintArray(array, "Исходный массив: ", "Выполняется сортироввка...");
+    ArraySort(array);
+    PrintArray(array, "Массив после обработки: ", "Задача выполнена.");
+}
 
 
 
