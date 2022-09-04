@@ -3,8 +3,9 @@
 // Первоначальный массив можно ввести с клавиатуры, либо задать на старте выполнения алгоритма.
 // Использовать исключительно массивы.
 
-string[] InputArray()
+string[] InputArray(string userText)
 {
+    Console.WriteLine(userText);
     string[] arrayString = Console.ReadLine().Split(' ', ',');
     return arrayString;
 }
@@ -49,7 +50,7 @@ void PrintArray(string[] array, string preOutputText, string postOutputText)
 
 
 Console.Clear();
-string[] array = InputArray();
+string[] array = InputArray("Введите некоторое количество слов через пробел или разделяя их запятой: ");
 PrintArray(array, "Исходный массив: ", "Выполняется сортировка...");
 string[] newArray = ArraySort(array);
 PrintArray(newArray, "Массив после обработки: ", "Задача выполнена.");
