@@ -46,9 +46,6 @@ void PrintArray(string[] array, string preOutputText, string postOutputText)
 }
 
 
-
-
-
 Console.Clear();
 string[] array = InputArray("Введите некоторое количество слов через пробел или разделяя их запятой: ");
 PrintArray(array, "Исходный массив: ", "Выполняется сортировка...");
